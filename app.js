@@ -81,8 +81,65 @@ function renderPerformance(){const s=stats();let weakest=REGIONS.map(r=>({r,s:st
  if(document.querySelector('#first'))document.querySelector('#first').addEventListener('click',()=>openCase(1));document.querySelector('#resetBtn').addEventListener('click',()=>{if(confirm('Apagar todas as respostas e anotações salvas neste navegador?')){store.answers={};store.notes={};save();renderPerformance()}});document.querySelector('#csvBtn').addEventListener('click',exportCSV);}
 function exportCSV(){const header=['Carta','Estrutura','Região','Alternativa marcada','Resultado','Data'];const lines=[header,...CASES.map(c=>{const a=store.answers[c.id];return [c.id,c.title,c.region,a?a.choice+1:'',a?(a.correct?'Acerto':'Erro'):'Não respondido',a?.date||'']})];const csv='\uFEFF'+lines.map(row=>row.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='anatomia_quem_sou_eu_desempenho.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),500)}
 function renderSources(){root.innerHTML=`<span class="eyebrow">TRANSPARÊNCIA ACADÊMICA</span><h1 class="page-title">Fontes e cuidados</h1><p class="page-intro">As situações são fictícias e foram redigidas como exercícios de revisão. Elas se inspiram nas cartinhas e nos slides da disciplina, com algumas orientações assistenciais complementares.</p><div class="summary-banner top-gap"><div><strong>Base principal: 30 cartas + 8 conjuntos de slides</strong><p>Prof.ª Dr.ª Nathálya Gardênia de Holanda Marinho Nogueira • Anatomia Humana II, UEMG — Unidade Passos.</p></div><span class="status-tag">Referências por tema</span></div><div class="section-head"><div><h2>Materiais da disciplina</h2><p>Arquivos usados como referência anatômica, enviados para o projeto.</p></div></div><section class="panel">${SLIDES.map(s=>`<div class="source-item"><div class="source-icon">▤</div><div><strong>${esc(s.name)}</strong><p>${esc(s.file)}</p><p>Material didático da disciplina, 2026.</p></div></div>`).join('')}</section><div class="section-head"><div><h2>Referências complementares verificadas</h2><p>Para algumas dicas de práticas assistenciais e segurança.</p></div></div><section class="panel"><div class="source-item"><div class="source-icon">♥</div><div><strong>American Heart Association — Diretrizes 2025 para suporte básico de vida</strong><p>Posicionamento das mãos nas compressões torácicas em adultos.</p><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support/" target="_blank" rel="noopener noreferrer">Abrir diretrizes →</a></div></div><div class="source-item"><div class="source-icon">✚</div><div><strong>CDC — Administração de vacinas e marcos anatômicos</strong><p>Cuidados com o local de aplicação intramuscular no deltoide.</p><a href="https://www.cdc.gov/pinkbook/hcp/table-of-contents/chapter-6-vaccine-administration.html" target="_blank" rel="noopener noreferrer">Abrir orientação →</a></div></div><div class="source-item"><div class="source-icon">◉</div><div><strong>Organização Mundial da Saúde — Best practices in phlebotomy</strong><p>Avaliação de vasos e cuidados na venopunção.</p><a href="https://www.ncbi.nlm.nih.gov/books/NBK138665/" target="_blank" rel="noopener noreferrer">Abrir guia →</a></div></div></section><div class="section-head"><div><h2>Livro de procedimentos citado em aula</h2></div></div><section class="panel"><p class="panel-sub">Não foi possível confirmar o título exato do livro nos materiais acessíveis. Por isso, nenhuma orientação deste site é atribuída a uma obra não identificada. Você pode registrar o título para consultar depois.</p><label for="book" style="font-size:12px;font-weight:900">Título / edição para conferência</label><input id="book" class="search" style="margin-top:8px;padding-left:14px;width:100%;max-width:600px" value="${esc(store.book)}" placeholder="Ex.: título completo, autor e edição..."/><div class="note-hint">Registro salvo somente neste navegador. Não muda automaticamente as referências dos casos.</div></section><div class="callout" style="background:#fffaf0;border-color:#f1e5be"><b>Importante: material educacional, não protocolo clínico</b><p>Os casos são simplificados para aprendizagem e não devem orientar atendimento real, diagnósticos ou procedimentos invasivos. Confira sempre a literatura, o protocolo da instituição e a supervisão docente.</p></div>`;document.querySelector('#book').addEventListener('input',e=>{store.book=e.target.value;save()});}
+function renderSobre() {
+  root.innerHTML = `
+    <span class="eyebrow">CONHEÇA O PROJETO</span>
+    <h1 class="page-title">Sobre o AnatoLab</h1>
+    <p class="page-intro">
+      Uma plataforma educacional criada para tornar
+      o aprendizado em Enfermagem mais interativo,
+      acessível e conectado à prática clínica.
+    </p>
+
+    <section class="panel" style="margin-top:24px">
+      <h2>Nossa proposta</h2>
+      <p>
+        O AnatoLab nasceu a partir de um jogo educativo
+        de Anatomia Topográfica chamado "Quem sou eu?".
+        Seu objetivo é evoluir para uma plataforma de
+        estudos com casos clínicos, materiais acadêmicos,
+        exercícios interativos e ferramentas de revisão.
+      </p>
+    </section>
+
+    <section class="panel" style="margin-top:20px">
+      <span class="eyebrow">IDEALIZADORA E DESENVOLVEDORA</span>
+      <h2>Victória Aparecida Santos Borges</h2>
+      <p>
+        Graduanda em Enfermagem pela Universidade do
+        Estado de Minas Gerais (UEMG), Unidade Passos.
+      </p>
+      <p>
+        Responsável pela idealização e pelo desenvolvimento
+        inicial da plataforma AnatoLab.
+      </p>
+    </section>
+
+    <section class="panel" style="margin-top:20px">
+      <h2>O futuro do AnatoLab</h2>
+      <p>
+        O projeto pretende ampliar sua biblioteca acadêmica,
+        desenvolver novos casos clínicos e incorporar
+        recursos de organização e acompanhamento dos estudos.
+      </p>
+      <p>
+        Futuramente, a plataforma poderá receber
+        colaboradores e novos módulos educacionais.
+      </p>
+    </section>
+
+    <div class="footer">
+      AnatoLab • Plataforma educacional em desenvolvimento • 2026
+    </div>
+  `;
+}
 function render(){
- if(page==='inicio')renderHome();else if(page==='casos')renderQuiz();else if(page==='biblioteca')renderLibrary();else if(page==='desempenho')renderPerformance();else renderSources();
+ if(page==='inicio')renderHome();
+ else if(page==='casos')renderQuiz();
+ else if(page==='biblioteca')renderLibrary();
+ else if(page==='desempenho')renderPerformance();
+ else if(page==='sobre')renderSobre();
+ else renderSources();
  root.insertAdjacentHTML('afterbegin',`<div class="cloud-banner"><div><strong>✦ Acesso livre</strong><p>Use sem cadastro. Respostas e anotações ficam somente neste navegador. Exporte os resultados se quiser guardá-los.</p></div></div>`);
 }
 document.addEventListener('click',e=>{
