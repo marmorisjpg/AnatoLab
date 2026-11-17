@@ -1,5 +1,4 @@
 'use strict';
-
 // Lógica do site: navegação, perguntas, gabarito, desempenho e notas.
 
 const SLIDES = [
@@ -14,7 +13,15 @@ const SLIDES = [
 ];
 const REGIONS=['Cabeça','Pescoço','Tórax','Abdome','Membros superiores','Membros inferiores'];
 const COLORS={'Cabeça':['#fff8e8','#bb8d25'],'Pescoço':['#fff8e8','#bb8d25'],'Tórax':['#fff0f2','#c76475'],'Abdome':['#eaf8ef','#4c966a'],'Membros superiores':['#edf4ff','#5686d0'],'Membros inferiores':['#f3efff','#8a69c3']};
-const LABELS={inicio:'Painel inicial',casos:'Casos clínicos',biblioteca:'Biblioteca',desempenho:'Meu desempenho',fontes:'Fontes e cuidados'};
+const LABELS = {
+  inicio: 'Painel inicial',
+  casos: 'Casos clínicos',
+  biblioteca: 'Biblioteca',
+  desempenho: 'Meu desempenho',
+  fontes: 'Fontes e cuidados',
+  sobre: 'Sobre o AnatoLab',
+  materiais:'Materiais de estudo',
+};
 const KEY='anatomia_quem_sou_eu_site_v1';
 // Versão de apresentação sem cadastro: todos os dados ficam exclusivamente no navegador.
 let store={answers:{},notes:{},book:''};try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);if(parsed&&typeof parsed==='object')store={...store,...parsed};}}catch(e){console.warn('Armazenamento local indisponível');}
@@ -139,6 +146,7 @@ function render(){
  else if(page==='biblioteca')renderLibrary();
  else if(page==='desempenho')renderPerformance();
  else if(page==='sobre')renderSobre();
+ else if(page==='materiais')renderBibliotecaAcademica();
  else renderSources();
  root.insertAdjacentHTML('afterbegin',`<div class="cloud-banner"><div><strong>✦ Acesso livre</strong><p>Use sem cadastro. Respostas e anotações ficam somente neste navegador. Exporte os resultados se quiser guardá-los.</p></div></div>`);
 }

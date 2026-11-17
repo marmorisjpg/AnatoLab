@@ -1,0 +1,27 @@
+/* AnatoLab — Biblioteca acadêmica independente e responsiva */
+.bib-page{max-width:1260px;margin:0 auto;color:#182443}
+.bib-hero{padding:34px;border-radius:24px;background:linear-gradient(115deg,#18294c,#5b3eb2);color:white;box-shadow:0 15px 30px #202d4a18}
+.bib-hero h1{font-size:clamp(1.65rem,3.8vw,2.7rem);line-height:1.14;letter-spacing:-.04em;margin:15px 0 12px;max-width:760px}
+.bib-hero p{font-size:1rem;line-height:1.65;color:#eef0ff;max-width:750px}
+.bib-hero .eyebrow{color:#ddd3ff}
+.bib-disclaimer{display:block;max-width:770px;margin-top:18px;font-size:.8rem;line-height:1.5;color:#e4dcff}
+.bib-tools{margin:26px 0 12px;display:grid;grid-template-columns:minmax(200px,2fr) minmax(210px,1fr);gap:14px}
+.bib-tools label{font-weight:700;font-size:.82rem;color:#38435e;display:grid;gap:7px}
+.bib-tools input,.bib-tools select{min-width:0;max-width:100%;height:47px;padding:0 13px;background:#fff;border:1px solid #dce1ee;border-radius:12px;color:#253453;font:inherit}
+.bib-tools input:focus-visible,.bib-tools select:focus-visible,.bib-actions button:focus-visible,.bib-note-area textarea:focus-visible{outline:3px solid #9685e7;outline-offset:2px}
+.bib-meta{margin:18px 0;color:#68758b;font-size:.9rem}
+.bib-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bib-card{min-width:0;background:white;border:1px solid #e2e6f2;border-radius:18px;padding:20px;box-shadow:0 8px 24px #1b2b4a0a}
+.bib-card-top{display:flex;gap:7px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.bib-chip,.bib-tag{display:inline-flex;border-radius:50px;padding:5px 9px;background:#eeeaff;color:#51419e;font-size:.71rem;font-weight:800}
+.bib-tag{background:#f1f4f9;color:#768198}
+.bib-card h3{font-size:1.07rem;margin:15px 0 8px;color:#172547;line-height:1.25}
+.bib-card p{color:#65738d;font-size:.87rem;line-height:1.56;min-height:60px}
+.bib-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.bib-actions label{font-size:.8rem;display:flex;align-items:center;gap:8px;cursor:pointer}
+.bib-actions input{width:17px;height:17px;accent-color:#6852c4}
+.bib-note-button{cursor:pointer;border:1px solid #d8d2f5;background:#f8f6ff;color:#5545aa;font:inherit;font-size:.8rem;font-weight:700;border-radius:10px;padding:9px 12px}
+.bib-note-area{margin-top:14px}.bib-note-area label{display:block;font-size:.77rem;color:#56627d;margin-bottom:8px}.bib-note-area textarea{width:100%;box-sizing:border-box;resize:vertical;min-height:85px;border:1px solid #d7dbeb;border-radius:10px;padding:10px;font:inherit;font-size:.85rem;color:#23314c}.bib-note-area small{color:#4d7b69}
+.bib-footer,.bib-empty{font-size:.82rem;line-height:1.5;color:#64738a;margin:23px 0}
+@media(max-width:1000px){.bib-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:660px){.bib-hero{padding:22px;border-radius:18px}.bib-tools{grid-template-columns:1fr}.bib-grid{grid-template-columns:1fr}.bib-card p{min-height:0}.bib-card{padding:18px}}
