@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+<meta name="theme-color" content="#101a34"/>
+<meta name="description" content="Casos clínicos educativos de Anatomia Topográfica para estudantes de Enfermagem. 30 situações clínicas, gabarito comentado e dicas assistenciais."/>
+<title>AnatoLab • Quem sou eu? | Enfermagem</title>
+<link rel="stylesheet" href="estilos.css"/>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="brand-icon"><img alt="Logo Quem sou eu?" src="logo.webp"></div><div><h2>AnatoLab</h2><small>Quem sou eu? • Enfermagem</small></div></div>
+ <div class="nav-label">NAVEGAÇÃO</div>
+ <nav class="nav" aria-label="Navegação principal">
+  <button type="button" data-go="inicio" class="active"><span class="symbol">◫</span> Painel inicial</button>
+  <button type="button" data-go="casos"><span class="symbol">✚</span> Casos clínicos</button>
+  <button type="button" data-go="biblioteca"><span class="symbol">▤</span> Biblioteca</button>
+  <button type="button" data-go="desempenho"><span class="symbol">◉</span> Meu desempenho</button>
+  <button type="button" data-go="fontes"><span class="symbol">⌁</span> Fontes e cuidados</button>
+ </nav>
+ <div class="aside-bottom"><div class="aside-info"><div class="mini">PROJETO EDUCATIVO</div><strong>30 estruturas, 30 casos</strong><p>Da anatomia topográfica ao raciocínio clínico de Enfermagem.</p></div><div class="aside-foot">Material de estudantes da UEMG — Unidade Passos<br>Não é um protocolo assistencial oficial.</div></div>
+</aside>
+<section class="content">
+ <header class="topbar"><div class="crumb"><small>ANATOMIA TOPOGRÁFICA / UEMG PASSOS</small><span id="pageName">Painel inicial</span></div><div class="top-actions"><span id="syncIndicator" class="sync-indicator" role="status" aria-live="polite">✓ Progresso neste navegador</span></div></header>
+ <main class="workspace" id="root" aria-live="polite"></main>
+</section>
+</div>
+<script defer src="casos.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>
